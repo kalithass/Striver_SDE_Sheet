@@ -1,12 +1,11 @@
-package strivers.sorting;
+package strivers.sorting.sorting1;
 
 import strivers.App;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 //https://leetcode.com/problems/sort-an-array/description/
-public class InsertionSort  implements App {
+public class InsertionSort implements App {
 
     @Override
     public void run() {

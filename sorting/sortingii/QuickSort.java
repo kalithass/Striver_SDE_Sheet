@@ -1,4 +1,4 @@
-package strivers.sorting;
+package strivers.sorting.sortingii;
 
 import strivers.App;
 
