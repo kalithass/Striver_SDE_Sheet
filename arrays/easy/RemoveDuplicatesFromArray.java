@@ -16,14 +16,14 @@ public class RemoveDuplicatesFromArray implements App {
 
 
     public int removeDuplicates(int[] nums) {
-        int equalTillNow = 0;
+        int tailOfUniqueElements = 0;
 
         for(int i=0;i<nums.length;i++) {
-            if(nums[equalTillNow] != nums[i]) {
-                equalTillNow++;
-                nums[equalTillNow] = nums[i];
+            if(nums[tailOfUniqueElements] != nums[i]) {
+                tailOfUniqueElements++;
+                nums[tailOfUniqueElements] = nums[i];
             }
         }
-        return equalTillNow+1;
+        return tailOfUniqueElements+1;
     }
 }
