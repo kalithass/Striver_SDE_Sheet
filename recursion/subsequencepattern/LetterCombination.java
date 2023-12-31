@@ -18,11 +18,11 @@ public class LetterCombination implements App {
     }
 
     public List<String> letterCombinations(String digts) {
-        return recursivepproach(digts);
+        return recursiveApproach(digts);
 //        return iterativeApproach(digts);
     }
 
-    private List<String> recursivepproach(String digts) {
+    private List<String> recursiveApproach(String digts) {
         List<String> res = new ArrayList<>();
         if (digts.length() > 0) recursiveHelper(digts, 0, res, getMap(), "");
         return res;
