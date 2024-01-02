@@ -1,11 +1,11 @@
 package strivers;
 
-import strivers.binarytree.hard.SerializeAndDeserializeTree;
+import strivers.dp.DPonStrings.PrintLongestCommonSubSequence;
 
 
 public class Main {
     public static void main(String[] args) {
-        App app = new SerializeAndDeserializeTree();
+        App app = new PrintLongestCommonSubSequence();
         app.run();
     }
 }
