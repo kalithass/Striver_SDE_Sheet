@@ -2,6 +2,7 @@ package strivers.dp.DPonStrings;
 
 import strivers.App;
 
+//https://leetcode.com/problems/shortest-common-supersequence/
 public class ShortestCommonSuperSequence implements App {
 
 
