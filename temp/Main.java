@@ -2,8 +2,8 @@ package strivers.temp;
 
 import java.util.*;
 
-
-public class Ideone {
+class Main
+{
 
     Random rand = new Random();
     List<Integer> wkPlayers;
@@ -13,11 +13,12 @@ public class Ideone {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         int wk = 2;
-        int bat = 7;
-        int al = 8;
-        int bowl = 5;
+        int bat = 6;
+        int al = 6;
+        int bowl= 8;
 
-        Ideone t = new Ideone();
+
+        Main t = new Main();
 
         t.printPlayers(wk, bat, al, bowl);
         t.printCaptainAndViceCaptains();
@@ -82,7 +83,6 @@ public class Ideone {
             bLen = getRandomInTheRange(bat);
             cLen = getRandomInTheRange(al);
             dLen = getRandomInTheRange(bowl);
-            System.out.println(aLen+" "+bLen+" "+cLen+" "+dLen);
             if (aLen + bLen + cLen + dLen == 11) break;
         }
 
@@ -113,7 +113,7 @@ public class Ideone {
     }
 
     private static int getRandomInTheRange(int max) {
-        return new Ideone().rand.nextInt(max) + 1;
+        return new Main().rand.nextInt(max) + 1;
 //        return (int) Math.floor(Math.random() *(max - min + 1) + min);
     }
 }

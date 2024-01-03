@@ -12,6 +12,7 @@ public class ShortestCommonSuperSequence implements App {
         System.out.println(res);
     }
 
+    // if length is asked return sLen + tLen - len(lcs)
     public String shortestCommonSupersequence(String s, String t) {
         int[][] dp = getDPArray(s,t);
         int n1 = s.length(), n2 = t.length();
