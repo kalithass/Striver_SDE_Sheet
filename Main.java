@@ -1,12 +1,11 @@
 package strivers;
 
-import strivers.dp.DPonStrings.PrintLongestCommonSubSequence;
-import strivers.dp.dpOnStock.BestTimeToBuyAndSellStockIII;
+import strivers.dp.dpOnLIS.LongestIncreasingBitonicSequence;
 
 
 public class Main {
     public static void main(String[] args) {
-        App app = new BestTimeToBuyAndSellStockIII();
+        App app = new LongestIncreasingBitonicSequence();
         app.run();
     }
 }
