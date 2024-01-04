@@ -1,11 +1,11 @@
 package strivers;
 
-import strivers.dp.dpOnLIS.LongestIncreasingBitonicSequence;
+import strivers.dp.MCM.PalindromicPartitioningII;
 
 
 public class Main {
     public static void main(String[] args) {
-        App app = new LongestIncreasingBitonicSequence();
+        App app = new PalindromicPartitioningII();
         app.run();
     }
 }
