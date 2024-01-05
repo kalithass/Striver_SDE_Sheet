@@ -1,11 +1,11 @@
 package strivers;
 
-import strivers.dp.MCM.PalindromicPartitioningII;
+import strivers.graph.problem.RottingOranges;
 
 
 public class Main {
     public static void main(String[] args) {
-        App app = new PalindromicPartitioningII();
+        App app = new RottingOranges();
         app.run();
     }
 }
