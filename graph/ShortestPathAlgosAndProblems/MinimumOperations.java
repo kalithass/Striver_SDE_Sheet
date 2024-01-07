@@ -18,7 +18,7 @@ public class MinimumOperations implements App {
         System.out.println(res);
     }
 
-    private static int minimumOperations(int n, int start, int end, int[] a) {
+    public static int minimumOperations(int n, int start, int end, int[] a) {
         if(start == end ) return 0;
         int mod = 1000;
         int[] distance = new int[1000];
@@ -28,7 +28,6 @@ public class MinimumOperations implements App {
         queue.add(new Pair(0, start));
         while (!queue.isEmpty()) {
             Pair pair = queue.poll();
-            if (pair.val == end) return pair.step+1;
             for (int element : a) {
                 int val = (pair.val * element) % mod;
                 if (pair.step+1 < distance[val]) {

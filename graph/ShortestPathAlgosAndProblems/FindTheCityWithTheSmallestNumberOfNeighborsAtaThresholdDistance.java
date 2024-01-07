@@ -42,7 +42,7 @@ public class FindTheCityWithTheSmallestNumberOfNeighborsAtaThresholdDistance imp
             }
         }
 
-        int maxCountSoFar = Integer.MAX_VALUE;
+        int minCountSoFar = Integer.MAX_VALUE;
         int cityNumber = -1;
         for (int i = 0; i < n; i++) {
             int count = 0;
@@ -51,8 +51,8 @@ public class FindTheCityWithTheSmallestNumberOfNeighborsAtaThresholdDistance imp
                     count++;
             }
 
-            if (count <= maxCountSoFar) {
-                maxCountSoFar = count;
+            if (count <= minCountSoFar) {
+                minCountSoFar = count;
                 cityNumber = i;
             }
         }
