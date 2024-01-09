@@ -24,6 +24,26 @@ public class NinjasTraining implements App {
         return dpApproach(n, points);
     }
 
+    private static int spaceOptimization(int n, int[][] points)
+    {
+        int[] past = new int[4];
+        for (int i=n-1;i>=0;i--) {
+            int[] curr = new int[4];
+            for (int prev=0;prev<=3;prev++) {
+
+                int max = 0;
+                for(int j=0;j<3;j++) {
+                    if (j != prev) {
+                        max = Math.max(points[i][j] + past[j], max);
+                    }
+                }
+                curr[prev] = max;
+            }
+            past = curr;
+        }
+        return past[3];
+    }
+
     private static int dpApproach(int n, int[][] points) {
         int[][] dp = new int[n+1][4];
 
