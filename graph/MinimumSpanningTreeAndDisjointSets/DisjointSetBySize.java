@@ -29,6 +29,7 @@ public class DisjointSetBySize {
             parent[ulp_u] = parent[ulp_v];
             size[ulp_v] += size[ulp_u];
         } else {
+            // this is for greater than size ( but also we can use for == case as well)
             parent[ulp_v] = ulp_u;
             size[ulp_u] += size[ulp_v];
         }
