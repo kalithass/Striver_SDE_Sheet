@@ -19,35 +19,43 @@ public class BipartiteGraph implements App {
     }
 
     public boolean isBipartite(int[][] graph) {
-        return usingBfs(graph);
-    }
-
-    private static boolean usingBfs(int[][] graph) {
         int n = graph.length;
         int[] colorMatrix = new int[n];
-        for(int i=0;i<n;i++) {
-            if(colorMatrix[i]==0 && !colorTheComponent(graph, i, colorMatrix)) return false;
+        for (int i = 0; i < n; i++) {
+            if (colorMatrix[i] == 0 && !colorTheComponentDFS(graph, i, colorMatrix, 1)) return false;
         }
         return true;
     }
 
-    private static boolean colorTheComponent(int[][] graph, int vertex, int[] colorMatrix) {
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{vertex,1});
+    private static boolean colorTheComponentDFS(int[][] graph, int vertex, int[] colorMatrix, int color) {
+        colorMatrix[vertex] = color;
+        for (int i = 0; i < graph[vertex].length; i++) {
+            int element = graph[vertex][i];
+            int newColor = color == 1 ? 2 : 1;
+            if (colorMatrix[element] == 0) {
+                if (!colorTheComponentDFS(graph, element, colorMatrix, newColor)) return false;
+            }
+            else if(colorMatrix[element] == color) return false;
+        }
+        return true;
+    }
+
+    private static boolean colorTheComponentBFS(int[][] graph, int vertex, int[] colorMatrix) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(vertex);
         colorMatrix[vertex] = 1;
-        while (!queue.isEmpty())  {
-            int[] node = queue.poll();
-            int i = node[0];
-            int parentColor = node[1];
-            for(int j = 0; j< graph[i].length; j++) {
-                int element = graph[i][j];
-                if(colorMatrix[element] !=0 && colorMatrix[element]!=parentColor) continue;
-                if(colorMatrix[element] !=0 && colorMatrix[element]==parentColor) {
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            int parentColor = colorMatrix[node];
+            for (int j = 0; j < graph[node].length; j++) {
+                int element = graph[node][j];
+                if (colorMatrix[element] != 0 && colorMatrix[element] != parentColor) continue;
+                if (colorMatrix[element] != 0 && colorMatrix[element] == parentColor) {
                     return false;
                 } else {
-                    int newColor = parentColor == 1 ? 2: 1;
+                    int newColor = parentColor == 1 ? 2 : 1;
                     colorMatrix[element] = newColor;
-                    queue.add(new int[]{graph[i][j], newColor});
+                    queue.add(graph[node][j]);
                 }
             }
         }

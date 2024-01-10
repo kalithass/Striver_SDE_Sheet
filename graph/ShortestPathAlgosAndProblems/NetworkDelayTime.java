@@ -30,7 +30,7 @@ public class NetworkDelayTime implements App {
         List<List<int[]>> adjMatrix = getAdjMatrix(times, n);
         int[] res = new int[n];
         Arrays.fill(res, Integer.MAX_VALUE);
-        Queue<Pair> queue = new PriorityQueue<>(Comparator.comparingInt(e -> e.distance));
+        Queue<Pair> queue = new LinkedList<>();
         res[k] = 0;
         queue.add(new Pair(k, res[k]));
 

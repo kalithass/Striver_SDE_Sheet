@@ -37,7 +37,7 @@ public class ArticulationPoint implements App {
         for (int i = 0; i < n; i++) {
             if (visited[i] == 0) {
                 // node parent result adjList visited timeOfInsertion minTimeToReach insertionTime
-                findArticulationPoints(i, -1, res, adjMatrix, visited, timeOfInsertion, minTimeToReach, insertionTime, 0);
+                findArticulationPoints(i, -1, res, adjMatrix, visited, timeOfInsertion, minTimeToReach, insertionTime);
             }
         }
         return res;
@@ -45,16 +45,16 @@ public class ArticulationPoint implements App {
 
     private static void findArticulationPoints(int node, int parent, Set<Integer> res,
                                                List<List<Integer>> adjMatrix, int[] visited,
-                                               int[] timeOfInsertion, int[] minTimeToReach, int insertionTime,
-                                               int child) {
+                                               int[] timeOfInsertion, int[] minTimeToReach, int insertionTime) {
         visited[node] = 1;
         timeOfInsertion[node] = insertionTime;
         minTimeToReach[node] = insertionTime;
+        int child = 0;
         for (int element : adjMatrix.get(node)) {
             if (element == parent) continue;
             if (visited[element] == 0) {
                 findArticulationPoints(element, node, res, adjMatrix, visited,
-                        timeOfInsertion, minTimeToReach, insertionTime+1, child);
+                        timeOfInsertion, minTimeToReach, insertionTime+1);
                 minTimeToReach[node] = Math.min(minTimeToReach[node], minTimeToReach[element]);
                 if (minTimeToReach[element] >= timeOfInsertion[node] && parent != -1) {
                     res.add(node);
