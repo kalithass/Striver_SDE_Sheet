@@ -21,6 +21,7 @@ public class NinjasTraining implements App {
 
     public static int ninjaTraining(int n, int points[][]) {
 //        return recursiveHelper(n, points);
+//        return spaceOptimization(n,points);
         return dpApproach(n, points);
     }
 

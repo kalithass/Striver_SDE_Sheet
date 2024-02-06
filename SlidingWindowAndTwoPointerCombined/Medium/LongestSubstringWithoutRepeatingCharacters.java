@@ -22,13 +22,15 @@ public class LongestSubstringWithoutRepeatingCharacters implements App {
         Set<Character> set = new HashSet<>();
         int n = s.length();
         while (right<n) {
-            while(right<n && !set.contains(s.charAt(right))) {
+            if(!set.contains(s.charAt(right))) {
                 set.add(s.charAt(right));
+                res  = Math.max(set.size(), res);
                 right++;
             }
-            res  = Math.max(right-left, res);
+            else {
             set.remove(s.charAt(left));
             left++;
+            }
         }
         return res;
     }
